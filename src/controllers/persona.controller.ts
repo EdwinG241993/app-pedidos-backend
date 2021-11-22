@@ -20,10 +20,10 @@ const fetch = require("node-fetch");
 export class PersonaController {
   constructor(
     @repository(PersonaRepository)
-    public personaRepository : PersonaRepository,
+    public personaRepository: PersonaRepository,
     @service(AutenticacionService)
-    public servicioAutenticacion : AutenticacionService,
-  ) {}
+    public servicioAutenticacion: AutenticacionService,
+  ) { }
 
   @post('/personas')
   @response(200, {
@@ -53,9 +53,9 @@ export class PersonaController {
     let asunto = "Registro app pedidos";
     let contenido = `Hola ${persona.nombres}, su nombre de usuario es: ${persona.correo}, y su contraseña asignada es ${clave}`;
     fetch(`http://127.0.0.1:5000/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
-    .then((data:any)=>{
-      console.log(data);
-    })
+      .then((data: any) => {
+        console.log(data);
+      })
 
     return p;
   }
